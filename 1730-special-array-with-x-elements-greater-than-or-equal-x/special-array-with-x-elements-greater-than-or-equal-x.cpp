@@ -7,7 +7,7 @@ public:
         int end = nums.size();
 
         while (start <= end) {
-            int mid = start + (end - start) / 2;
+            int mid = (start + end) / 2;
             int ans = count(nums, mid);
 
             if (ans == mid) return mid;
