@@ -1,26 +1,17 @@
-#include <vector>
-#include <unordered_map>
-
-using namespace std;
-
 class Solution {
 public:
     int numberOfSubarrays(vector<int>& nums, int k) {
-        unordered_map<int, int> prefixSum;
-        prefixSum[0] = 1;  // There's one way to have zero odd numbers initially
-        int count = 0;
-        int oddCount = 0;
-
-        for (int num : nums) {
-            if (num % 2 != 0) {
-                oddCount++;
+        int n = nums.size();
+        vector<int> cnt(n + 1, 0);
+        cnt[0] = 1;
+        int ans = 0, t = 0;
+        for (int v : nums) {
+            t += v & 1;
+            if (t - k >= 0) {
+                ans += cnt[t - k];
             }
-            if (prefixSum.find(oddCount - k) != prefixSum.end()) {
-                count += prefixSum[oddCount - k];
-            }
-            prefixSum[oddCount]++;
+            cnt[t]++;
         }
-
-        return count;
+        return ans;
     }
 };
