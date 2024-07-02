@@ -6,7 +6,7 @@ public:
 
         vector<int> hashMap(26,0);
 
-        for(auto &c: words[0]){
+        for(auto c: words[0]){
 
             hashMap[c-'a']++;
             
@@ -16,7 +16,7 @@ public:
 
             vector<int> hashMap2(26,0);
 
-            for(auto &c: words[i]){
+            for(auto c: words[i]){
 
                 hashMap2[c-'a']++;
                 
