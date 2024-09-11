@@ -10,10 +10,10 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        const int cnt = 9;
-        bool row[cnt][cnt] = {false};
-        bool col[cnt][cnt] = {false};
-        bool sub[cnt][cnt] = {false};
+        int cnt = 9;
+        bool row[9][9] = {false};
+        bool col[9][9] = {false};
+        bool sub[9][9] = {false};
         
         for(int r = 0; r < cnt; ++r){
             for(int c = 0; c < cnt; ++c){
